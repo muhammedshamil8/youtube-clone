@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins' , sans-serif;
+}
+body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 40px;
+   min-height: 100vh;
+   background: #191919;
+}
+@property --a{
+syntax: '<angle>';
+inherits: false;
+initial-value: 0deg;
+}
+.loader2{
+   position: relative;
+   width: 150px;
+   height: 150px;
+   background: repeating-conic-gradient(from var(--a),var(--clr1) 0%, var(--clr1) 5%, transparent 5%, transparent 60% ,var(--clr1) 100%);
+   animation: animate 4s linear infinite;
+   border-radius: 50%;
+
+}
+@keyframes animate{
+   0%{
+      --a:0deg;
+   }
+   100%{
+      --a:360deg;
+   }
+}
+.loader2::before{
+   content: '';
+   position: absolute;
+   inset: 0;
+   background: repeating-conic-gradient(from var(--a),var(--clr2) 0%, var(--clr2) 5%, transparent 5%, transparent 60% ,var(--clr2) 100%);
+   animation: animate 4s linear infinite;
+   animation-delay: -2s;
+   border-radius: 50%;
+}
+.loader2 span{
+content: '';
+position: absolute;
+inset: 0;
+z-index: 1000;
+animation: rotate 4s linear infinite;
+
+}
+@keyframes rotate{
+   0%{
+      transform: rotate(0deg);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
+}
+.loader2 span::before{
+   content: '';
+position: absolute;
+top: 3px;
+left: 92px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--clr1);
+box-shadow: 0 0 5px var(--clr1),
+0 0 20px var(--clr1),
+0 0 40px var(--clr1),
+0 0 60px var(--clr1);
+}
+.loader2 span::after{
+   content: '';
+position: absolute;
+bottom: 3px;
+right: 92px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--clr2);
+box-shadow: 0 0 5px var(--clr2),
+0 0 20px var(--clr2),
+0 0 40px var(--clr2),
+0 0 60px var(--clr2);
+}
+.loader2::after{
+   content: '';
+   position: absolute;
+   inset: 9px;
+   background-color: #191919;
+   border-radius: 50%;
+}
+
+.btn{
+   position: relative;
+   text-decoration: none;
+   padding: 15px 30px;
+   background: repeating-conic-gradient(from var(--a),var(--clr1) 0%, var(--clr1) 5%, transparent 5%, transparent 60% ,var(--clr1) 70%);
+   animation: animate 2s linear infinite;
+}
+.btn::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   inset:0;
+   background: repeating-conic-gradient(from var(--a),var(--clr2) 0%, var(--clr2) 5%, transparent 5%, transparent 60% ,var(--clr2) 70%);
+   animation: animate 2s linear infinite;
+   animation-delay: -0.5s;
+   transition: 0.5;
+opacity: 0;
+}
+.btn:hover::after,
+.btn:hover::before{
+   opacity: 1;
+}
+.btn::after{
+   content:'';
+   position: absolute;
+   inset:2px;
+   background: #191919;
+
+}
+.btn span{
+   position: relative;
+   z-index: 10;
+   /* text-decoration: ; */
+   color: white;
+   letter-spacing: 0.1em;
+   transition: 0.5s;
+}
+.btn:hover span{
+   letter-spacing: 0.25em;
+
+   font-weight: bold;
+   color:var(--clr2)
+}
