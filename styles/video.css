@@ -38,7 +38,7 @@
 .video-author {
    margin-bottom: 4px;
 }
-
+/* 
 .video-grid {
    display: grid;
    grid-template-columns: 1fr 1fr ;
@@ -70,7 +70,7 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
    }
 }
-
+ */
 .video-time{
    font-size: 12px;
    font-weight: 500;
